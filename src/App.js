@@ -46,16 +46,15 @@ export default function App() {
             <View style={styles.repositoryContainer}>
               <Text style={styles.repository}>{repo.title}</Text>
 
+
               <View style={styles.techsContainer}>
-              <FlatList
-                data={repo.techs}
-                keyExtractor={tech => tech}
-                renderItem={({ item:tech })=>(
-                  <Text style={styles.tech}>
-                    {tech}
-                  </Text>
-                )}
-              />
+              {repo.techs.map(tech => 
+              <Text style={styles.tech} key={tech}>
+                {tech}
+              </Text>
+              )}
+
+              
               </View>
 
               <View style={styles.likesContainer}>
