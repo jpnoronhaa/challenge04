@@ -22,16 +22,14 @@ export default function App() {
 
 
   async function handleLikeRepository(id) {
-    const response = await api.post(`/repositories/${id}/like`, {});
+    const index = 
+          repositories.findIndex( repository => repository.id === id);
 
-    repo = response.data;
+     const newArray = [ ...repositories ];
 
-    const repoIndex = repositories.findIndex(repo => repo.id === id);
+     newArray[index].likes++;
 
-    let newArr = [...repositories]; // copying the old datas array
-    newArr[repoIndex] = repo; // replace e.target.value with whatever you want to change it to
-
-    setRepositories(newArr);
+     setRepositories( newArray ); 
 
 
   }
